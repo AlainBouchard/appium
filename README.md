@@ -40,7 +40,7 @@ The questions to ask and the points to investigate in order to have the current 
 
 ## What do you need to know in order to make a Mobile Application Test Strategy?
 
-* What are the Flag Phone used by the customers? (Example: is there any statistics of the most used phones?)
+* What are the Flag Phone used by the customers? (Example: is there any statistics of the most used phones four our application?)
 * Is the application a native, a web or an hybrid application?
 * What is sharing both the Mobile and the Web applications?
 * How confident are you in your software quality?
@@ -48,7 +48,9 @@ The questions to ask and the points to investigate in order to have the current 
 
 ## Example of a test strategy
 
-### For a Mobile Application:
+### [Shift-Left Approach](https://medium.com/cloudscaleqa/best-practices-for-shift-right-and-shift-left-testing-approaches-in-an-agile-environment-c95dcb1e621e)
+
+#### For a Mobile Application:
 
 1. The Developer updates the Mobile App on his local (example: GIT branch)
     1. Add/Update Unit tests
@@ -77,9 +79,7 @@ The questions to ask and the points to investigate in order to have the current 
     1. Enable/Disable hardware (WiFi, LTE, GPS, etc)
     1. Run User Journey tests and visual tests (color, rendering, etc.)
 
-### For Web Application:
-
-[Shift-Left Approach](https://medium.com/cloudscaleqa/best-practices-for-shift-right-and-shift-left-testing-approaches-in-an-agile-environment-c95dcb1e621e):
+#### For Web and Back-End services:
 
 1. The Developer update the Front End service on his local (example: GIT branch)
     1. Add/Update Unit tests
@@ -99,13 +99,14 @@ The questions to ask and the points to investigate in order to have the current 
     1. Run integration tests regression against Back End services cluster (staging/test cluster?)
     1. Run User Journey Tests
     1. Run a few automated visual tests (example: [Percy.io](https://percy.io/visual-testing), [applitools](https://applitools.com/blog/visual-testing/), etc.)
-    1. Define the release as release candidate? (Example Continuous Delivery) or deploy/release on production (Continuous Deployment) according to the product maturity
+    1. Define the release as a `Release Candidate`? (Example: Continuous Delivery vs deploy and promote release on production with Continuous Deployment; it depends of the product maturity)
 
-[Shift Right Approach](https://medium.com/cloudscaleqa/best-practices-for-shift-right-and-shift-left-testing-approaches-in-an-agile-environment-c95dcb1e621e):
+### [Shift-Right Approach](https://medium.com/cloudscaleqa/best-practices-for-shift-right-and-shift-left-testing-approaches-in-an-agile-environment-c95dcb1e621e)
 
 1. Monitoring Tools (Datadog with reports and alarms, etc.)
 1. Non-Functional Load tests (with **realistic traffic only** like 1x or 2x the expected traffic on a  Production Cluster for Tests)
-1. User Journey/Exploratory manual/automated functional tests
+1. User Journey Automated tests (example: cronjob)
+1. Exploratory Manual tests
 
 ## References
 
