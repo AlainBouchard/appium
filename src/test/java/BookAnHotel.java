@@ -4,13 +4,13 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BookAnHotel {
     private HopperUtils hopperUtils;
     private AndroidDriver driver;
+
     private LandingPage landingPage;
     private HotelPage hotelPage;
     private CalendarPage calendarPage;
@@ -32,8 +32,12 @@ public class BookAnHotel {
         }
     }
 
+    /**
+     * User flow from the Landing page to the Calendar page.
+     * Note: this is only an example so it is not a full test flow.
+     */
     @Test
-    public void bookAnHotelTest() throws InterruptedException {
+    public void bookAnHotelTest() {
         landingPage
                 .waitForHotelButton()
                 .click();
