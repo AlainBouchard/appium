@@ -112,8 +112,8 @@ The questions to ask and the points to investigate in order to have the current 
 
 ### Run on local
 
-1. Download or Clone the GIT repo `https://github.com/AlainBouchard/appium`
-2. Download and Install Android Studio from `https://developer.android.com/studio`
+1. Download or Clone the GIT repo https://github.com/AlainBouchard/appium
+2. Download and Install Android Studio from https://developer.android.com/studio
    1. From "more actions" -> SDK Manager -> Copy&Paste the "Android SDK Location" on a notepad
       1. Example: `C:\Users\abouc\AppData\Local\Android\Sdk`
    2. Go to "SDK Tools" Tab -> Select the following (see below) -> Click "OK" Button -> Follow installation steps if needed
@@ -124,11 +124,11 @@ The questions to ask and the points to investigate in order to have the current 
       1. Select an Android phone (ie. Pixel 2) -> Click "Next" Button
       2. Click on wanted version (ie Pie) -> Download (if needed) -> Follow installation steps
          1. Once downloaded -> Click "Next" Button -> Select Name (Example: Appium or keep the suggested one)
-            1. Example: Name: Pixel 2 API 28 
+            1. Example name: Pixel 2 API 28 
          2. Try by clicking "Play" button
 
 3. Download and Install Appium Desktop 
-   1. download from GITHUB release page `https://github.com/appium/appium-desktop/releases/tag/v1.22.0`
+   1. Download from GITHUB release page https://github.com/appium/appium-desktop/releases/tag/v1.22.0
       1. Start the application
          1. Example: `http://localhost:4723`
       2. Click "Edit Configuration"
@@ -141,7 +141,7 @@ The questions to ask and the points to investigate in order to have the current 
 
 ### Run on SauceLabs
 
-1. Download or Clone the GIT repo `https://github.com/AlainBouchard/appium`
+1. Download or Clone the GITHUB repo https://github.com/AlainBouchard/appium
 2. Create an account on [SauceLabs](https://saucelabs.com/platform/mobile-testing) for device testing
    1. Copy the `Username`, the `Access Key` and the `Url` to a notepad for future reference
    2. Set or Export the following environment variables:
@@ -160,7 +160,7 @@ The questions to ask and the points to investigate in order to have the current 
 ### Run using Dockerfile and SauceLabs
 
 1. Same as for [Run on SauceLabs](#run-on-saucelabs)
-2. Create a file with the variable contents (example docker-saucelabs.env)
+2. Create a file with the variable contents (example: `docker-saucelabs.env`)
 3. run `docker build -t hopper-android-tests:local .`
 4. run `docker run -e docker-saucelabs.env hopper-android-tests:local`
 
