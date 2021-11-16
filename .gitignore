@@ -1,5 +1,10 @@
+.classpath
+.project
+.settings/
 .idea/
 .gradle/
-build/
+
 Dockerfile
 docker-saucelabs.env
+build/
+bin/
