@@ -2,7 +2,7 @@
 
 ## What do you need to know to elaborate a QA strategy for an existing Scrum Team?
 
-It is important to understand the current position of the global test strategy of a "product" when working to improve it. **Involving the "product" Scrum Team in the decision** in a key factor to the success.
+It is important to understand the current position of the global test strategy of a "product" when working to improve it. **Involving the "product" Scrum Team in the decisions** in a key factor to the success.
 
 The questions to ask and the points to investigate in order to have the current situation status are the following:
 
@@ -14,11 +14,11 @@ The questions to ask and the points to investigate in order to have the current 
   * Is there any CI/CD in the current strategy?
   * If there is any CD, is CD for Continuous Delivery or Continuous Deployment?
   * What is the current testing flow and quality gates?
-  * Is there any monitoring tools? (Datadog, SignalFX, Prometheus, etc.)
+  * Are there any monitoring tools? (Datadog, SignalFX, Prometheus, etc.)
 * What are the current pain points?
   * For the internal customers?
   * For the external customers?
-  * Is there any satisfaction surveys? (example: [NPS surveys](https://en.wikipedia.org/wiki/Net_promoter_score) or [CSAT surveys](https://en.wikipedia.org/wiki/Customer_satisfaction))
+  * Are there any satisfaction surveys? (example: [NPS surveys](https://en.wikipedia.org/wiki/Net_promoter_score) or [CSAT surveys](https://en.wikipedia.org/wiki/Customer_satisfaction))
 * Technologies used for communication between services:
   * REST/SOAP APIs?
   * GraphQL APIs?
@@ -40,7 +40,7 @@ The questions to ask and the points to investigate in order to have the current 
 
 ## What do you need to know in order to make a Mobile Application Test Strategy?
 
-* What are the Flag Phone used by the customers? (Example: is there any statistics of the most used phones four our application?)
+* What are the Flag Phones used by the customers? (Example: is there any statistics of the most used phones four our application?)
 * Is the application a native, a web or an hybrid application?
 * What is sharing both the Mobile and the Web applications?
 * How confident are you in your software quality?
@@ -48,9 +48,11 @@ The questions to ask and the points to investigate in order to have the current 
 
 ## Example of a test strategy
 
+This section is an example; there is no "one t-shirt fits all" solution. Some points may be missing while others may not be needed. Product and Scrum Team maturity may also affect the whole testing flow in order to either deliver faster, or with more validation.
+
 ### [Shift-Left Approach](https://medium.com/cloudscaleqa/best-practices-for-shift-right-and-shift-left-testing-approaches-in-an-agile-environment-c95dcb1e621e)
 
-#### For a Mobile Application:
+#### For a Mobile Application
 
 1. The Developer updates the Mobile App on his local (example: GIT branch)
     1. Add/Update Unit tests
@@ -80,9 +82,9 @@ The questions to ask and the points to investigate in order to have the current 
     1. Moving from protrait to landscape back and forth
     1. Run User Journey tests and visual tests (color, rendering, etc.)
 
-#### For Web and Back-End services:
+#### For Web and Back-End services
 
-1. The Developer update the Front End service on his local (example: GIT branch)
+1. The Developer update the Front-End services on his local (example: GIT branch)
     1. Add/Update Unit tests
     1. Update the Code to make the test pass
     1. The developer run the Unit Tests, UI Unit Tests, Component and maybe a few narrow integration tests (Docker/Mock Server may be used)
@@ -117,17 +119,29 @@ A [video can be download](https://drive.google.com/file/d/1xcEKmPijsjm9Fbr1PEWbo
 
 ### Technology stack selection (ADR)
 
-The proper way to select a tool and a techology stack for a given project is to create an [ADR (or an Architecture Decision Record)](https://adr.github.io/) that will require a problem statement, a few suggested options, a pros/cons analysis and a decision record.
+The proper way to select a tool and a technology stack for a given project is to create an [ADR (or an Architecture Decision Record)](https://adr.github.io/) that will require a problem statement, a few suggested options, a pros/cons analysis and a decision record.
 
-It takes time to create an ADR since available options may require spikes so that Appium and Java were used for this project. Appium is a well known and integrated solution for mobile application testing since tests can be written once and they can run on many targets (examples: Android, iOS, browser). Java has been used since Hopper is using Scala and JVM - It is complicated to find Software Developers in Tests with Scala experience so Java seems to be a good mitigation solution.
+*Author's note: I have no strong opinion on the available technologies: every problem has its solution, and of course, taking the Scrum Team concerns and suggestions is a key factor in a solution adoption.*
+
+#### UI Testing (Mobile App)
+
+It takes time to create an ADR since available options may require spikes so that Appium and Java were used for this project. Appium is a well known and integrated solution for mobile application testing since tests can be written once and then can run on many targets (examples: Android, iOS, browsers). Java has been used for this project since Hopper is using Scala and JVM; it is complicated to find Software Developers in Tests with Scala experience, so Java seems to be a good mitigation solution.
+
+#### API Testing (Back End)
+
+The ADR for API testing would contain technologies like Java, Python and JavaScript. Java with [Rest-Assured](https://rest-assured.io/) (or [Unirest](https://www.baeldung.com/unirest)) would make a great job, however writing tests with Python (using PyTest, Tox, requests, etc) or JavaScript are faster (no build time) and take less VM resource since no JVM to run. The ADR would consider the above criteria and the Scrum Team preferences. There is currently no API tests in this project.
+
+#### Browser testing (UI)
+
+The ADR for UI only testing would consider the test development speed, cost (paid plans), and Scrum Team language preference. Tools like Cypress.io, Puppeteer (not a testing tool but an automation tool), WebDriver.io (selenium), Nightwatch, etc can be evaluated. If the goal is to build a QA Team then JavaScript may be a better choice than Java since JavaScript is very easy to learn (fast learning curve), many Software Developers in Tests already use JavaScript and many tools are available for JavaScript.
 
 ### Run on local
 
-1. Download or Clone the GIT repo https://github.com/AlainBouchard/appium
+1. Download or Clone the GIT repo [https://github.com/AlainBouchard/appium]
 1. Java JDK should be already installed for your OS (Example: This project is built on [OpenJDK: jdk-11.0.8.10-hotspot](https://www.openlogic.com/openjdk-downloads)
-    1. Make sure `JAVA_HOME` environement variable is set
+    1. Make sure `JAVA_HOME` environment variable is set
     1. Copy&Paste the `JAVE_HOME` location to a notepad for future reference (Example: `JAVA_HOME=C:\Program Files\OpenJDK\jdk-11.0.8.10-hotspot\`)
-1. Download and Install Android Studio from https://developer.android.com/studio
+1. Download and Install Android Studio from [https://developer.android.com/studio]
     1. From "more actions" -> SDK Manager -> Copy&Paste the "Android SDK Location" on a notepad
     1. Example: `C:\Users\abouc\AppData\Local\Android\Sdk`
     1. From "SDK Platforms" Tab -> Install "Android 9 (Pie)" for this project (Note: other versions haven't been tried)
@@ -143,7 +157,7 @@ It takes time to create an ADR since available options may require spikes so tha
           1. Try by clicking "Play" button
 
 1. Download and Install Appium Server GUI
-    1. Download from GITHUB release page https://github.com/appium/appium-desktop/releases/tag/v1.22.0
+    1. Download from GITHUB release page [https://github.com/appium/appium-desktop/releases/tag/v1.22.0]
         1. Start the application
     1. Click "Edit Configuration"
     1. Copy both `JAVA_HOME` (if required) and Android SDK paths from previously copy&pasted paths:
@@ -156,7 +170,7 @@ It takes time to create an ADR since available options may require spikes so tha
 
 ### Run on SauceLabs
 
-1. Download or Clone the GITHUB repo https://github.com/AlainBouchard/appium
+1. Download or Clone the GITHUB repo [https://github.com/AlainBouchard/appium]
 1. Create an account on [SauceLabs](https://saucelabs.com/platform/mobile-testing) for device testing (A trial account is fine for this example)
     1. Copy the `Username`, the `Access Key` and the `Url` to a notepad for future reference
     1. Set or Export the following environment variables:
