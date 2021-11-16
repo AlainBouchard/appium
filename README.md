@@ -108,10 +108,66 @@ The questions to ask and the points to investigate in order to have the current 
 1. User Journey Automated tests (example: cronjob)
 1. Exploratory Manual tests
 
+## Installing Appium tests for the Mobile App
+
+### Run on local
+
+1. Download or Clone the GIT repo `https://github.com/AlainBouchard/appium`
+2. Download and Install Android Studio from `https://developer.android.com/studio`
+   1. From "more actions" -> SDK Manager -> Copy&Paste the "Android SDK Location" on a notepad
+      1. Example: `C:\Users\abouc\AppData\Local\Android\Sdk`
+   2. Go to "SDK Tools" Tab -> Select the following (see below) -> Click "OK" Button -> Follow installation steps if needed
+       1. Android Emulator
+       2. Android SDK Platform-tools
+          1. Intel x86 Emulator Accelerator HAXM installer
+   3. From "more actions" -> Select "AVD Manager" -> Click "Create virtual device"
+      1. Select an Android phone (ie. Pixel 2) -> Click "Next" Button
+      2. Click on wanted version (ie Pie) -> Download (if needed) -> Follow installation steps
+         1. Once downloaded -> Click "Next" Button -> Select Name (Example: Appium or keep the suggested one)
+            1. Example: Name: Pixel 2 API 28 
+         2. Try by clicking "Play" button
+
+3. Download and Install Appium Desktop 
+   1. download from GITHUB release page `https://github.com/appium/appium-desktop/releases/tag/v1.22.0`
+      1. Start the application
+         1. Example: `http://localhost:4723`
+      2. Click "Edit Configuration"
+      3. Copy both `JAVA_HOME` (if required) and Android SDK paths from previously copy&pasted paths:
+         1. `C:\Users\abouc\AppData\Local\Android\Sdk`
+         2. `C:\Program Files\OpenJDK\jdk-11.0.8.10-hotspot\`
+   2. Start the Server 
+   3. Note: you may need to manually install Appium Inspector from v. 1.22.0.
+4. from prompt: run `./gradlew test --info`
+
+### Run on SauceLabs
+
+1. Download or Clone the GIT repo `https://github.com/AlainBouchard/appium`
+2. Create an account on [SauceLabs](https://saucelabs.com/platform/mobile-testing) for device testing
+   1. Copy the `Username`, the `Access Key` and the `Url` to a notepad for future reference
+   2. Set or Export the following environment variables:
+   ```
+      HOPPER_PLATFORM_NAME=Android 
+      HOPPER_DEVICE_NAME=Google Pixel 3 GoogleAPI Emulator 
+      HOPPER_PLATFORM_VERSION=9
+      HOPPER_APK_FILENAME=https://github.com/AlainBouchard/appium/raw/main/apk/hopper_4.81.1-116270.apk
+      HOPPER_APPIUM_URL=<SAUCELABS_URL> 
+      HOPPER_SAUCELABS_APPIUM_VERSION=1.20.2 
+      HOPPER_SAUCELABS_USERNAME=<SAUCELABS_USERNAME> 
+      HOPPER_SAUCELABS_KEY=<SAUCELABS_ACCESSKEY>
+    ```
+3. from prompt: run `./gradlew test --info`
+
+### Run using Dockerfile and SauceLabs
+
+1. Same as for [Run on SauceLabs](#run-on-saucelabs)
+2. Create a file with the variable contents (example docker-saucelabs.env)
+3. run `docker build -t hopper-android-tests:local .`
+4. run `docker run -e docker-saucelabs.env hopper-android-tests:local`
+
 ## References
 
 * Shift Left/Right Approaches: https://medium.com/cloudscaleqa/best-practices-for-shift-right-and-shift-left-testing-approaches-in-an-agile-environment-c95dcb1e621e
-* Applitools: https://applitools.com/blog/visual-testing/
+* AppliTools: https://applitools.com/blog/visual-testing/
 * AWS Device Farm: https://aws.amazon.com/device-farm/
 * BrowserStack Mobile Testing: https://www.browserstack.com/guide/mobile-testing
 * Atlassian: https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
