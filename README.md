@@ -1,4 +1,4 @@
-# appium
+# testing-vision
 
 ## What do you need to know to elaborate a QA strategy for an existing Scrum Team?
 
