@@ -43,6 +43,7 @@ public class BookAnHotel {
                 .sendKeys("Buenos Aires");
 
         hotelPage.waitForSearchHotelOptions();
+
         MobileElement location = hotelPage.selectHotelLocation("Buenos Aires, Argentina");
         assertNotNull(location);
 
