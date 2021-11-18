@@ -196,6 +196,26 @@ The ADR for UI only testing would consider the test development speed, cost (pai
 3. run `docker build -t hopper-android-tests:local .`
 4. run `docker run --env-file=docker-saucelabs.env hopper-android-tests:local`
 
+## Installing Cypress.io for browsers testing (non-mobile apps)
+
+Cypress is a JavaScript solution to test the web version of the application. It is not possible to test with mobiles or mobile emulators. It is a JavaScript solution to test with browsers and many screen resolutions (viewports), for computers (examples: windows, macs, etc.), android and iPhones. Using Cypress is only an example and may not be needed since Appium/WebDriver/Selenium is also an option for browser testing.
+
+A [video can be downloaded](https://drive.google.com/file/d/1javElFI_EGsQ5zxA74syDNFCqAWduxOO/view?usp=sharing) as a Cypress test run example.
+
+### In order to run Cypress from the terminal:
+1. Make sure that nodejs is installed or it can be download from [https://nodejs.dev/download/] (Example: the project has been developed using nodejs 14)
+1. From this project -> got to `cypress.io` directory
+1. Run `npm ci` from the command line in order to install the npm packages
+1. To run tests:
+    1. Using the Cypress test runner: `npx cypress open` and select the test to run
+    1. Using the Cypress CLI: `npm test` or `npm run test:record`
+        1. The `test:record` will send the test data, screenshots, videos, etc. to the Cypress Dashboard
+        1. The project dashboard on cypress.io can be accessed using the following [secret](https://onetimesecret.com/secret/jwfxizmudjl8ybqv6k5965gwyq7j84w) (contact me for temporary access after the November 24th, 2021)
+    1. Using Docker:
+        1. Build the image `docker build -t hooper-cypress:local .`
+        1. Run the tests `docker run hopper-cypress:local`
+        1. The [COMMIT_* environment variables](https://docs.cypress.io/guides/continuous-integration/introduction#Git-information) can be set in the CI in order to send the Git branch information to Cypress.io
+
 ## References
 
 * ADR from GitHub: [https://adr.github.io/]
