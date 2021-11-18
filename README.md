@@ -203,6 +203,7 @@ Cypress is a JavaScript solution to test the web version of the application. It 
 A [video can be downloaded](https://drive.google.com/file/d/1javElFI_EGsQ5zxA74syDNFCqAWduxOO/view?usp=sharing) as a Cypress test run example.
 
 ### In order to run Cypress from the terminal:
+
 1. Make sure that nodejs is installed or it can be download from [https://nodejs.dev/download/] (Example: the project has been developed using nodejs 14)
 1. From this project -> got to `cypress.io` directory
 1. Run `npm ci` from the command line in order to install the npm packages
@@ -212,7 +213,7 @@ A [video can be downloaded](https://drive.google.com/file/d/1javElFI_EGsQ5zxA74s
         1. The `test:record` will send the test data, screenshots, videos, etc. to the Cypress Dashboard
         1. The project dashboard on cypress.io can be accessed using the following [secret](https://onetimesecret.com/secret/jwfxizmudjl8ybqv6k5965gwyq7j84w) (contact me for temporary access after the November 24th, 2021)
     1. Using Docker:
-        1. Build the image `docker build -t hooper-cypress:local .`
+        1. Build the image `docker build -t hopper-cypress:local .`
         1. Run the tests `docker run hopper-cypress:local`
         1. The [COMMIT_* environment variables](https://docs.cypress.io/guides/continuous-integration/introduction#Git-information) can be set in the CI in order to send the Git branch information to Cypress.io
 
