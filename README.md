@@ -166,7 +166,7 @@ The ADR for UI only testing would consider the test development speed, cost (pai
     1. Start the Server using the default IP and PORT (Example: `http://0.0.0.0:4723`)
     1. Note: you may need to manually install [Appium Inspector](https://github.com/appium/appium-inspector) from v. 1.22.0.
 
-1. From prompt: run `./gradlew test --info`
+1. From prompt: run `./gradlew test --info --rerun-tasks`
 
 ### Run on SauceLabs
 
