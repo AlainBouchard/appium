@@ -1,6 +1,6 @@
 Cypress.Commands.add('clickHotelButton', () => { 
   // TODO: Open a JIRA-#### to add test-id attribute (best practices) and
-  // test-id could be the same for mobile format and computer browsers.
+  // test-id could be the same for mobile screen formats and computer browsers.
   cy
     .get('.booking-category-button-desktop')
     .contains('Hotels')
@@ -29,10 +29,6 @@ Cypress.Commands.add('selectLocation', (location) => {
 
 Cypress.Commands.add('pickDates', (days) => {
   days = days || 1;
-
-  // cy
-  //   .get('input[placeholder="Check-in"]')
-  //   .click();
 
   cy
     .get('.calendar-popup-root')
