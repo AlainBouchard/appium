@@ -30,9 +30,9 @@ Cypress.Commands.add('selectLocation', (location) => {
 Cypress.Commands.add('pickDates', (days) => {
   days = days || 1;
 
-  cy
-    .get('input[placeholder="Check-in"]')
-    .click();
+  // cy
+  //   .get('input[placeholder="Check-in"]')
+  //   .click();
 
   cy
     .get('.calendar-popup-root')
