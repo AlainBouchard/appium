@@ -211,7 +211,7 @@ A [video can be downloaded](https://drive.google.com/file/d/1javElFI_EGsQ5zxA74s
     1. Using the Cypress test runner: `npx cypress open` and select the test to run
     1. Using the Cypress CLI: `npm test` or `npm run test:record`
         1. The `test:record` will send the test data, screenshots, videos, etc. to the Cypress Dashboard
-        1. The project dashboard on cypress.io can be accessed using the following [secret](https://onetimesecret.com/secret/hq588yrqnm273uvszduenjym61yjqrz) (contact me on my [LinkedIn](https://www.linkedin.com/in/alainbouchard/) for temporary access after the December 3rd, 2021)
+        1. The project dashboard on cypress.io can be accessed using the following [secret](https://onetimesecret.com/secret/hxiv62r74hnakoamlumfixjhgto0sp1) (contact me on my [LinkedIn](https://www.linkedin.com/in/alainbouchard/) for temporary access after the December 3rd, 2021)
     1. Using Docker:
         1. Build the image `docker build -t hopper-cypress:local .`
         1. Run the tests `docker run hopper-cypress:local`
